@@ -2,7 +2,6 @@
 import { ref, computed } from 'vue'
 import ChampTemperature from './components/ChampTemperature.vue'
 
-
 const temperatureKelvin = ref(17)
 
 const tempKelvin = computed({
@@ -22,11 +21,36 @@ const tempFahrenheit = computed({
 </script>
 
 <template>
-  <div>
+  <main class="simple-container">
     <h1>TP - Convertisseur de température</h1>
     
-    <ChampTemperature label="Kelvin" v-model="tempKelvin" />
-    <ChampTemperature label="Celsius" v-model="tempCelsius" />
-    <ChampTemperature label="Fahrenheit" v-model="tempFahrenheit" />
-  </div>
+    <div class="fields-container">
+      <ChampTemperature label="Kelvin" v-model="tempKelvin" />
+      <ChampTemperature label="Celsius" v-model="tempCelsius" />
+      <ChampTemperature label="Fahrenheit" v-model="tempFahrenheit" />
+    </div>
+  </main>
 </template>
+
+<style>
+/* Un style beaucoup plus classique et épuré */
+.simple-container {
+  max-width: 500px;
+  margin: 50px auto; /* Centre le tout avec une marge en haut */
+  font-family: Arial, sans-serif;
+  color: #2c3e50;
+}
+
+h1 {
+  color: #42b883; /* Le vert classique de Vue.js */
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+</style>
